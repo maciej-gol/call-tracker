@@ -1,0 +1,42 @@
+<div class="main-content-container">
+    <div>
+        <a ui-sref="graph({graph_id: graphId})">&laquo; Back to workflow graph</a>
+    </div>
+    <div class="graph-container">
+        <mg-directed-graph graph="graph" accessor="processRunsGraphAccessor"></mg-directed-graph>
+        <div class="loading-container" ng-if="loadingShown">
+            <div class="overlay"></div>
+            <div class="loading-message">
+                <img src="/static/icons/loading.gif"> Processing...
+            </div>
+        </div>
+    </div>
+    <mg-selected-artifact-tooltip> </mg-selected-artifact-tooltip>
+    <div class="select-process-tip" ng-if="tipShown">
+        To start exploring, select a process run from the list to the right -&gt;
+    </div>
+    <div class="data-container">
+        <div class="artifacts-list">
+            <input type="text"
+                   ng-model="runsQuery"
+                   ng-change="searchRuns(runsQuery)"
+                   placeholder="Search runs"/>
+            <br/>
+            <h3> Process runs (within workflow run) </h3>
+            <div class="process-item"
+                 ng-click="selectProcessRun(processRun)"
+                 ng-repeat="processRun in processRuns.objects">
+                {{ processRun.label }}
+            </div>
+            <div class="pagination-controls">
+                <a href="#"
+                   ng-click="processRuns.prevPage()"
+                   ng-if="processRuns.hasPrev()">&lt; Previous Page</a>
+                <b> Page {{ processRuns.page }} of {{ processRuns.totalPages }} </b>
+                <a href="#"
+                   ng-click="processRuns.nextPage()"
+                   ng-if="processRuns.hasNext()">Next Page &gt;</a>
+            </div>
+        </div>
+    </div>
+</div>

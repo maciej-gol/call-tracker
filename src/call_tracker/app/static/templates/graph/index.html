@@ -1,0 +1,10 @@
+<div class="main-content-container">
+    <div class="load-graph-container">
+        <form action="" ng-hide="uploading">
+            <button ng-click="createGraph()"> Create new graph </button>
+        </form>
+        <div ng-show="uploading && uploadError">
+            There was an error whilst uploading your graph. Please try again later.
+        </div>
+    </div>
+</div>

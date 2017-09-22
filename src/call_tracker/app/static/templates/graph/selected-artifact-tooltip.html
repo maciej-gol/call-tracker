@@ -1,0 +1,34 @@
+<div class="selected-artifact-tooltip" ng-class="{hidden: selectedNode == null}">
+    <h4 class="artifact-label"> {{ selectedNode.label }} </h4>
+    <div ng-if="selectedNode.isAggregate">
+        Nodes (click node to split it from aggregate):
+        <ul>
+            <li ng-repeat="node in aggregationMap[selectedNode.id]" ng-click="splitNode(node, selectedNode)">
+                <a ng-if="node.name || node.type == 'artifact'" href="#"> {{ node.label }} </a>
+                <a ng-if="!node.name && node.type != 'artifact'" href="#"> {{ node.label }} #{{ node.index }} </a>
+            </li>
+        </ul>
+    </div>
+    <div ng-if="!selectedNode.isAggregate">
+        ID: {{ selectedNode.id }}
+        <div ng-if="selectedNode.outputs && selectedNode.outputs.length">
+            Outputs:
+            <ul>
+                <li ng-repeat="output in selectedNode.outputs">
+                    <span ng-if="output.name || output.type == 'artifact'"> {{ output.label }} </span>
+                    <span ng-if="!output.name && output.type != 'artifact'"> {{ output.label }} #{{ output.index }} </span>
+                </li>
+            </ul>
+        </div>
+
+        <div ng-if="selectedNode.inputs && selectedNode.inputs.length">
+            Inputs:
+            <ul>
+                <li ng-repeat="input in selectedNode.inputs">
+                    <span ng-if="input.name || input.type == 'artifact'"> {{ input.label }} </span>
+                    <span ng-if="!input.name && input.type != 'artifact'"> {{ input.label }} #{{ input.index }} </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

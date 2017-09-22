@@ -1,0 +1,3 @@
+[console_scripts]
+call_tracker = call_tracker.cli:main
+

@@ -1,0 +1,30 @@
+<div class="main-content-container">
+    <div class="graph-container">
+        <mg-processes-graph accessor="processesGraphAccessor" graph-id="graphId"></mg-processes-graph>
+    </div>
+    <mg-selected-process-tooltip process="selectedProcess" graph-id="graphId"> </mg-selected-process-tooltip>
+    <div class="data-container">
+        <div class="processes-list">
+            <input type="text"
+                   placeholder="Search processes"
+                   ng-model="processesQuery"
+                   ng-change="searchProcesses(processesQuery)"/>
+            <br/>
+            <h3> Processes </h3>
+            <div class="process-item"
+                 ng-click="selectProcess(process)"
+                 ng-repeat="process in processes.objects">
+                {{ process.label }}
+            </div>
+            <div class="pagination-controls">
+                <a href="#"
+                   ng-click="processes.prevPage()"
+                   ng-if="processes.hasPrev()">&lt; Previous Page</a>
+                <b> Page {{ processes.page }} of {{ processes.totalPages }} </b>
+                <a href="#"
+                   ng-click="processes.nextPage()"
+                   ng-if="processes.hasNext()">Next Page &gt;</a>
+            </div>
+        </div>
+    </div>
+</div>

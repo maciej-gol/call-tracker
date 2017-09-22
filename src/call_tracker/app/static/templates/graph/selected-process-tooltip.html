@@ -1,0 +1,7 @@
+<div class="selected-process-tooltip" ng-class="{hidden: process == null}">
+    <h4 class="process-label"> {{ process.label }} </h4>
+    <ul>
+        <li>Process runs: {{ process.runs }}</li>
+        <li><a ng-href="/{{ graphId }}/process_runs/?processId={{ process.id }}">Show runs</a></li>
+    </ul>
+</div>

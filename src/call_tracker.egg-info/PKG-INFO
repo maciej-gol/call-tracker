@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: call-tracker
+Version: 1.0
+Summary: A realtime logging and aggregation server.
+Home-page: https://sentry.io
+Author: Sentry
+Author-email: hello@sentry.io
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2 :: Only
+Classifier: Topic :: Software Development
